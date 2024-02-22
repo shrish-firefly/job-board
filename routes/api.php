@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\V1\ApplyForJobController;
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\JobListingController;
+use App\Http\Controllers\Api\V1\SearchJobListingController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->name('api.')->group(function () {
@@ -12,5 +14,8 @@ Route::prefix('v1')->name('api.')->group(function () {
         Route::get('user', [AuthController::class, 'user'])->name('user')->middleware(['auth:sanctum']);
     });
 
-    Route::apiResource('listings',JobListingController::class)->middleware(['auth:sanctum']);
+    Route::apiResource('listings', JobListingController::class)->middleware(['auth:sanctum']);
+    Route::get('listing/{id}/applications', [JobListingController::class, 'applications'])->middleware(['auth:sanctum']);
+    Route::get('listing', SearchJobListingController::class);
+    Route::post('listing/{id}/apply', ApplyForJobController::class);
 });

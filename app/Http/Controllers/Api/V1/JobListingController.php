@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\StoreJobListingRequest;
 use App\Http\Requests\Api\V1\UpdateJobListingRequest;
+use App\Http\Resources\JobApplicationCollection;
+use App\Http\Resources\JobApplicationResource;
 use App\Http\Resources\JobListingCollection;
 use App\Http\Resources\JobListingResource;
 use App\Models\JobListing;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 
 class JobListingController extends Controller
@@ -62,5 +65,17 @@ class JobListingController extends Controller
         $listing->delete();
 
         return response()->json(['message' => 'Listing deleted successfully!', 'listing' => new JobListingResource($listing)], 200);
+    }
+
+    public function applications(string $id)
+    {
+        $listing = JobListing::query()->where('user_id', '=', Auth::id())->where('id', '=', $id)->first();
+        if (!$listing) {
+            return response()->json(['message' => 'Listing not found!'], 404);
+        }
+
+        $applications = $listing->applications;
+
+        return response()->json(['message' => '', 'applications' => new JobApplicationCollection($applications)], 200);
     }
 }
