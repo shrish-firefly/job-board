@@ -3,32 +3,17 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\LoginRequest;
+use App\Http\Requests\Api\V1\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:100',
-            'email' => 'required|email|unique:users,email',
-            'password' => ['required', 'confirmed', Password::min(8)->max(30)->mixedCase()->uncompromised()]
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 422);
-        }
-
-        $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ];
+        $data = $request->validated();
 
         $user = User::query()->create($data);
 
@@ -38,21 +23,10 @@ class AuthController extends Controller
         ], 201);
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['message' => 'Error', 'errors' => $validator->errors()], 422);
-        }
-
-        $credentials = [
-            'email' => $request->email,
-            'password' => $request->password
-        ];
+        
+        $credentials = $request->validated();
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
