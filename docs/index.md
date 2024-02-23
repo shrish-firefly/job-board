@@ -194,12 +194,13 @@ The base URL for all API endpoints is `http://localhost:8000/api/v1` and Accept 
 
 #### Update Job Listing
 
-- **URL:** `PUT /listings/{id}`
+- **URL:** `POST /listings/{id}`
 - **Description:** Update details of a specific job listing.
 - **Authorization Header:** `Bearer {token}`
 - **Request Body:**
   ```json
   {
+      "_method": "PUT",
       "job_title": "string",
       "description": "string",
       "instructions": "string",
@@ -229,9 +230,15 @@ The base URL for all API endpoints is `http://localhost:8000/api/v1` and Accept 
 
 #### Delete Job Listing
 
-- **URL:** `DELETE /listings/{id}`
+- **URL:** `POST /listings/{id}`
 - **Description:** Delete a specific job listing.
 - **Authorization Header:** `Bearer {token}`
+- **Request Body:**
+  ```json
+  {
+      "_method": "DELETE",
+  }
+  ```
 - **Response:**
   - Status Code: `200 OK`
   - Body:

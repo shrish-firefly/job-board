@@ -1,0 +1,712 @@
+{
+	"info": {
+		"_postman_id": "0170fa6a-3192-4262-b84a-2c150eaaa055",
+		"name": "Firefly tech assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31983407"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Test User\",\n    \"email\": \"testuser@gmail.com\",\n    \"password\" : \"TestUser12345@\",\n    \"password_confirmation\" : \"TestUser12345@\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api url}}/auth/register",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Failure",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Test User\",\n    \"email\": \"testuser@gmail.com\",\n    \"password\" : \"TestUser12345@\",\n    \"password_confirmation\" : \"TestUser12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api url}}/auth/register",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"testuser@gmail.com\",\n    \"password\" : \"TestUser12345@\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api url}}/auth/login",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Failure",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"testuser@gmail.com\",\n    \"password\" : \"TestUser12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api url}}/auth/login",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|xjvCdeuJJGV0sLatEHemCpkm0xOzKzgtAY85qsrq6fbf9274",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api url}}/auth/logout",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout Failure",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api url}}/auth/logout",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api url}}/auth/user",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user failure",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api url}}/auth/user",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Listings",
+			"item": [
+				{
+					"name": "Add new listing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"job_title\" : \"Senior Laravel Developer\",\n    \"company_name\" : \"Firefly Tech\",\n    \"location\" : \"Zero Km , Pokhara\",\n    \"description\" : \"Hello world\",\n    \"instructions\" : \"Bye world\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api url}}/listings",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"listings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch all listings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api url}}/listings",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"listings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show particular listing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api url}}/listings/1",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"listings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show particular listing failure",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api url}}/listings/2",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"listings",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update listing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_method\" : \"PUT\",\n    \"job_title\" : \"Senior Python Developer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api url}}/listings/1",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"listings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update listing Failure",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_method\" : \"PUT\",\n    \"job_title\" : \"Senior Python Developer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api url}}/listings/100",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"listings",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete listing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_method\" : \"DELETE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api url}}/listings/1",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"listings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete listing Failure",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_method\" : \"DELETE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api url}}/listings/100",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"listings",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search listings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api url}}/listing?title=laravel&location=Firefly",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"listing"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "laravel"
+								},
+								{
+									"key": "location",
+									"value": "Firefly"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All applications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|tESWygmM4uiUZP5m8486awdxjhVldpkbH9hgba6q89e7314d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api url}}/listing/2/applications",
+							"host": [
+								"{{api url}}"
+							],
+							"path": [
+								"listing",
+								"2",
+								"applications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Apply For Job",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "resume",
+							"type": "file",
+							"src": "Resume.pdf"
+						},
+						{
+							"key": "cover_letter",
+							"value": "Hello world",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api url}}/listing/2/apply",
+					"host": [
+						"{{api url}}"
+					],
+					"path": [
+						"listing",
+						"2",
+						"apply"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apply For Job Failure",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "resume",
+							"type": "file",
+							"src": "Resume.pdf",
+							"disabled": true
+						},
+						{
+							"key": "cover_letter",
+							"value": "Hello world",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api url}}/listing/2/apply",
+					"host": [
+						"{{api url}}"
+					],
+					"path": [
+						"listing",
+						"2",
+						"apply"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
