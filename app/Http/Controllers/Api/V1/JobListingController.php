@@ -12,6 +12,7 @@ use App\Http\Resources\JobListingResource;
 use App\Models\JobListing;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 
 class JobListingController extends Controller
 {

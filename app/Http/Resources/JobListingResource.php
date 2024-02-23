@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class JobListingResource extends JsonResource
 {
@@ -14,7 +15,8 @@ class JobListingResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
+
+        $data = [
             'id' => $this->id,
             'job_title' => $this->job_title,
             'company_name' => $this->company_name,
@@ -24,5 +26,13 @@ class JobListingResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
+
+        if (Auth::check()) {
+            $data['at_url'] = route('api.listing.applications', ['id' => $this->id]);
+        }else{
+            $data['apply_url'] = route('api.listing.apply', ['id' => $this->id]);
+        }
+
+        return $data;
     }
 }

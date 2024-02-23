@@ -15,7 +15,7 @@ Route::prefix('v1')->name('api.')->group(function () {
     });
 
     Route::apiResource('listings', JobListingController::class)->middleware(['auth:sanctum']);
-    Route::get('listing/{id}/applications', [JobListingController::class, 'applications'])->middleware(['auth:sanctum']);
-    Route::get('listing', SearchJobListingController::class);
-    Route::post('listing/{id}/apply', ApplyForJobController::class);
+    Route::get('listing/{id}/applications', [JobListingController::class, 'applications'])->middleware(['auth:sanctum'])->name('listing.applications');
+    Route::get('listing', SearchJobListingController::class)->name('listing.search');
+    Route::post('listing/{id}/apply', ApplyForJobController::class)->name('listing.apply');
 });

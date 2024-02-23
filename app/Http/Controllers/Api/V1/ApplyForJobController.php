@@ -16,9 +16,9 @@ class ApplyForJobController extends Controller
             return response()->json(['message' => 'Listing not found!'], 404);
         }
 
-        $file_name = md5($request->file('resume')) . "." . $request->file('resume')->extension();
+        $file_name = md5($request->resume) . "." . $request->resume->extension();
 
-        $request->file('resume')->move(public_path('uploads/resumes'), $file_name);
+        $request->resume->move(public_path('uploads/resumes'), $file_name);
 
         JobApplication::query()->create([
             'resume' => $file_name,
@@ -26,6 +26,6 @@ class ApplyForJobController extends Controller
             'job_listing_id' => $listing->id
         ]);
 
-        return response()->json(['message' => 'Applied successfully'], 200);
+        return response()->json(['message' => 'Applied successfully'], 201);
     }
 }
