@@ -5,7 +5,7 @@
 
 ### Base URL
 
-The base URL for all API endpoints is `http://localhost:8000/api/v1`.
+The base URL for all API endpoints is `http://localhost:8000/api/v1` and Accept header should be `application/json` for all routes.
 
 ### Authentication Endpoints
 
@@ -313,7 +313,7 @@ The base URL for all API endpoints is `http://localhost:8000/api/v1`.
   - `resume`: Resume file (multipart/form-data)
   - `cover_letter`: Cover letter text
 - **Response:**
-  - Status Code: `200 OK`
+  - Status Code: `201 OK`
   - Body:
     ```json
     {
