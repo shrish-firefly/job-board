@@ -41,12 +41,28 @@ Install PHP dependencies using Composer:
 composer install
 ```
 
+If you have php version error, please enter:
+
+```bash
+composer install --ignore-platform-reqs
+```
+
+```bash
+composer update
+```
+
 ### 4. Create Environment File
 
 Create a copy of the `.env.example` file and name it `.env`:
 
 ```bash
-cp .env.example .env
+cp .env.example .env #linux
+```
+
+or 
+
+```bash
+copy .env.example .env #windows
 ```
 
 ### 5. Generate Application Key
