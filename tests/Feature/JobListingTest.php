@@ -8,6 +8,8 @@ use Tests\TestCase;
 
 class JobListingTest extends TestCase
 {
+    use RefreshDatabase;
+    
     public function test_index_endpoint_returns_listings()
     {
         $userData = [
