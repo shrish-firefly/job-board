@@ -14,7 +14,7 @@ class AuthTest extends TestCase
     {
         $userData = [
             'name' => 'Pawan Bhatta',
-            'email' => 'pawanbhatta@gmail.com',
+            'email' => 'testuser@gmail.com',
             'password' => 'Qwertaaeeyuiop12@',
             'password_confirmation' => 'Qwertaaeeyuiop12@'
         ];
@@ -38,7 +38,7 @@ class AuthTest extends TestCase
     {
         $userData = [
             'name' => 'Pawan Bhatta',
-            'email' => 'pawanbhatta@gmail.com',
+            'email' => 'testuser@gmail.com',
             'password' => 'Qwertaaeeyuiop12@',
             'password_confirmation' => 'Qwertaaeeyuiop12@'
         ];
@@ -53,7 +53,7 @@ class AuthTest extends TestCase
     {
         $userData = [
             'name' => 'Pawan Bhatta',
-            'email' => 'pawanbhatta@gmail.com',
+            'email' => 'testuser@gmail.com',
             'password' => 'Qwertaaeeyuiop12@',
             'password_confirmation' => 'Qwertaaeeyuiop12@'
         ];
@@ -61,7 +61,7 @@ class AuthTest extends TestCase
         $response = $this->postJson(route('api.auth.register'), $userData);
 
         $credentials = [
-            'email' => 'pawanbhatta@gmail.com',
+            'email' => 'testuser@gmail.com',
             'password' => 'Qwertaaeeyuiop12@',
         ];
 
@@ -81,7 +81,7 @@ class AuthTest extends TestCase
     {
         $userData = [
             'name' => 'Pawan Bhatta',
-            'email' => 'pawanbhatta@gmail.com',
+            'email' => 'testuser@gmail.com',
             'password' => 'Qwertaaeeyuiop12@',
             'password_confirmation' => 'Qwertaaeeyuiop12@'
         ];
@@ -89,7 +89,7 @@ class AuthTest extends TestCase
         $response = $this->postJson(route('api.auth.register'), $userData);
 
         $credentials = [
-            'email' => 'pawanbhatta@gmail.com',
+            'email' => 'testuser@gmail.com',
             'password' => 'Qwertaaeeyuiop12',
         ];
 
@@ -117,14 +117,14 @@ class AuthTest extends TestCase
     {
         $userData = [
             'name' => 'Pawan Bhatta',
-            'email' => 'pawanbhatta@gmail.com',
+            'email' => 'testuser@gmail.com',
             'password' => 'Qwertaaeeyuiop12@',
             'password_confirmation' => 'Qwertaaeeyuiop12@'
         ];
         $this->postJson(route('api.auth.register'), $userData);
 
         $credentials = [
-            'email' => 'pawanbhatta@gmail.com',
+            'email' => 'testuser@gmail.com',
             'password' => 'Qwertaaeeyuiop12@',
         ];
         $loginResponse = $this->postJson(route('api.auth.login'), $credentials);
