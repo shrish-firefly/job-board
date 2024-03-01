@@ -5,7 +5,7 @@
 
 ### Base URL
 
-The base URL for all API endpoints is `http://localhost:8000/api/v1` and Accept header should be `application/json` for all routes.
+The base URL for all API endpoints is `https://dummyapi.shcstaging.com/api/v1` and Accept header should be `application/json` for all routes.
 
 ### Authentication Endpoints
 
